@@ -16,6 +16,4 @@ app.config.from_object(config[config_name])
 db = SQLAlchemy(app)
 
 from . import models
-from .v1 import v1 as v1_blueprint
-
-app.register_blueprint(v1_blueprint, url_prefix="/v1")
+from .views import *
