@@ -28,3 +28,12 @@ There is no need to do a front interface, you can just share a Postman collectio
 - Unit, integration, E2E tests
 - Store the status history of each letter in a new table
 - Impress us
+
+#### Test Data
+
+Here are tracking IDs that you can use:
+- RK633119313NZ
+- 3C00638101995
+
+The current La Poste API Sandbox environment is currently down (for an unknown amount of time).
+For now, you can use the Production environment keys.
