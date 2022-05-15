@@ -17,3 +17,6 @@ db = SQLAlchemy(app)
 
 from . import models
 from .views import *
+
+letter_view = LetterView()
+letter_view.register_routes(app)

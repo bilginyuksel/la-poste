@@ -1,16 +1,19 @@
-from app import app
-from app.models.letter import Letter
+from abc import ABC, abstractmethod
 
 
-@app.route("/ping", methods=["GET"])
-def ep_ping():
-    return "pong", 200
+class View(ABC):
+    @abstractmethod
+    def register_routes(self, app):
+        raise NotImplementedError
 
 
-@app.route("/letters", methods=["POST"])
-def ep_setup_create_letter():
-    # Example of ORM usage (SQLAlchemy)
-    letter = Letter()
-    db.session.add(letter)
-    db.session.commit()
-    return f"All done: letter object {letter.id} has been created", 200
+class LetterView(View):
+    def register_routes(self, app):
+        app.add_url_rule("/letters/<int:id>", "fetch", view_func=self.fetch)
+
+    def fetch(self, id):
+        return {
+            "id": id,
+            "tracking_number": "6A21757464334",
+            "status": "Your parcel has been delivered"
+        }
