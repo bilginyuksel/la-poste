@@ -21,6 +21,9 @@ class LetterRepository:
         except Exception:
             self.db.session.rollback()
 
+    def find_all(self):
+        return Letter.query.all()
+
 
 class LetterHistoryRepository:
     def __init__(self, db):
