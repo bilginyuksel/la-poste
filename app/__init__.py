@@ -1,3 +1,6 @@
+from .client import *
+from . import models
+from .views import *
 import os
 
 from flask import Flask
@@ -15,9 +18,24 @@ app.config.from_object(config[config_name])
 
 db = SQLAlchemy(app)
 
-from . import models
-from .views import *
-from .client import *
 
-letter_view = LetterView()
+def create_letter_service():
+    from . import service
+    from . import repository
+
+    conf = config[config_name]
+
+    return service.LetterService(
+        repository.LetterRepository(db),
+        repository.LetterHistoryRepository(db),
+        client.LetterTrackingClient(
+            conf.LETTER_TRACKING_CLIENT_BASE_URL,
+            conf.LETTER_TRACKING_CLIENT_API_KEY
+        )
+    )
+
+
+__letter_service = create_letter_service()
+
+letter_view = LetterView(__letter_service)
 letter_view.register_routes(app)
