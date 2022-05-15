@@ -25,4 +25,4 @@ htmlcov/
 *,cover
 
 # application specific
-**/e2e_testing.db
+**/testing.db

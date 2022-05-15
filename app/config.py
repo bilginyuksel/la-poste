@@ -13,7 +13,7 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     ENV_TYPE = "testing"
 
-    SQLALCHEMY_DATABASE_URI = "sqlite:///e2e_testing.db"
+    SQLALCHEMY_DATABASE_URI = "sqlite:///testing.db"
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     LETTER_TRACKING_CLIENT_BASE_URL = "https://api.laposte.fr/suivi/v2"
