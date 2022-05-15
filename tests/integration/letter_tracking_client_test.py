@@ -1,4 +1,3 @@
-
 import pytest
 
 from app import LetterTrackingClient, Timeline
