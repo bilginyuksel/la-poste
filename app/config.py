@@ -9,6 +9,9 @@ class Config:
 class DevelopmentConfig(Config):
     ENV_TYPE = "development"
 
+    LETTER_TRACKING_CLIENT_BASE_URL = "https://api.laposte.fr/suivi/v2"
+    LETTER_TRACKING_CLIENT_API_KEY = "2J7Gqn036YLsavqndlJHu+2/qO+ZikLeYmrScpCqpbzRe0Q7FAtkude3rz2N0WB0"
+
 
 class TestingConfig(Config):
     ENV_TYPE = "testing"
@@ -22,6 +25,11 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     ENV_TYPE = "production"
+
+    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
+
+    LETTER_TRACKING_CLIENT_BASE_URL = os.getenv("LETTER_TRACKING_CLIENT_BASE_URL")
+    LETTER_TRACKING_CLIENT_API_KEY = os.getenv("LETTER_TRACKING_CLIENT_API_KEY")
 
 
 config = {
