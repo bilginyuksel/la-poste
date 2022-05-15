@@ -10,6 +10,13 @@
 - `pipenv shell` to enter virtual environment (loading the variables in .env)
 - `flask run`
 
+#### Tests
+
+- `pytest tests/unit` to run unit tests
+- `pytest tests/integration` to run integration tests
+- `pytest tests/e2e` to run e2e tests
+- `pytest tests` to run all tests
+
 #### Explore DB
 
 Database is running on SQLite, it can be browsed using "DB Browser for SQLite" for instance
