@@ -16,6 +16,9 @@ class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = "sqlite:///e2e_testing.db"
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
+    LETTER_TRACKING_CLIENT_BASE_URL = "https://api.laposte.fr/suivi/v2"
+    LETTER_TRACKING_CLIENT_API_KEY = "2J7Gqn036YLsavqndlJHu+2/qO+ZikLeYmrScpCqpbzRe0Q7FAtkude3rz2N0WB0"
+
 
 class ProductionConfig(Config):
     ENV_TYPE = "production"
